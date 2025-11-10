@@ -95,4 +95,5 @@ export default class LoginPage {
       <button class="btn" type="submit">Masuk</button>
     `;
   }
+  
 }

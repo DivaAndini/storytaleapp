@@ -25,6 +25,15 @@ class App {
 
     this._setupDrawer();
     this._setupLogoutButton();
+
+    const subscribeButton = document.getElementById('push-notification-tools');
+    if (!subscribeButton) return;
+
+    if (!isUserLoggedIn()) {
+      subscribeButton.style.display = 'none';
+    } else {
+      subscribeButton.style.display = 'block';
+    };
   }
 
   _setupDrawer() {
@@ -80,6 +89,11 @@ class App {
             timer: 1500,
             showConfirmButton: false
           });
+
+          const subscribeButton = document.getElementById('push-notification-tools');
+          if (subscribeButton) {
+            subscribeButton.style.display = 'none';
+          }
 
           location.hash = '/login';
           this._setupLogoutButton();

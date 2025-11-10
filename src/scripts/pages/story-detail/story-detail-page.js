@@ -23,7 +23,7 @@ export default class StoryDetailPage {
         
         <div class="button-container">
           <button id="back-button" class="back-button">Kembali</button>
-          <button id="save-button" class="save-button">
+          <button id="save-button" class="save-button" aria-label="Simpan cerita">
             <i class="fas fa-bookmark"></i>
             Simpan Cerita
           </button>
@@ -118,7 +118,7 @@ export default class StoryDetailPage {
     const container = document.querySelector('.button-container');
     container.innerHTML = `
       <button id="back-button" class="back-button">Kembali</button>
-      <button id="save-button" class="save-button">
+      <button id="save-button" class="save-button" aria-label="Simpan cerita">
         <i class="fas fa-bookmark"></i> Simpan Cerita
       </button>
     `;
@@ -144,7 +144,7 @@ export default class StoryDetailPage {
     const container = document.querySelector('.button-container');
     container.innerHTML = `
       <button id="back-button" class="back-button">Kembali</button>
-      <button id="remove-button" class="remove-button">
+      <button id="remove-button" class="remove-button" aria-label="Hapus cerita dari bookmark">
         <i class="fas fa-bookmark"></i> Hapus dari Bookmark
       </button>
     `;

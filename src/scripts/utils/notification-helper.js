@@ -127,7 +127,7 @@ export async function subscribe() {
 }
 
 export async function unsubscribe() {
-  const failureUnsubscribeMessage = 'Langganan push notification gagal dinonaktifkan. Silakan login terlebih dahulu.';
+  const failureUnsubscribeMessage = 'Langganan push notification gagal dinonaktifkan';
   const successUnsubscribeMessage = 'Langganan push notification berhasil dinonaktifkan.';
   try {
     const pushSubscription = await getPushSubscription();

@@ -1,6 +1,6 @@
 import HomePresenter from './home-presenter.js';
 import * as StoryAPI from '../../data/api';
-import { checkAuthenticatedRoute } from '../../utils/auth.js';
+import { checkAuthenticatedRoute, isUserLoggedIn } from '../../utils/auth.js';
 import { showFormattedDate } from '../../utils/index.js';
 
 export default class HomePage {
@@ -15,13 +15,30 @@ export default class HomePage {
         </div>
 
         <div class="story-controls">
-          <input id="search-input" type="text" placeholder="Cari cerita..." class="search-box" />
-          <select id="sort-select" class="sort-select">
-            <option value="newest">Terbaru</option>
-            <option value="oldest">Terlama</option>
-            <option value="az">A-Z</option>
-            <option value="za">Z-A</option>
-          </select>
+          <div class="form-group">
+            <label for="search-input">Cari Cerita</label>
+            <input 
+              id="search-input" 
+              type="text" 
+              placeholder="Cari cerita..." 
+              class="search-box" 
+              aria-label="Kolom pencarian cerita"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="sort-select">Urutkan Cerita</label>
+            <select 
+              id="sort-select" 
+              class="sort-select" 
+              aria-label="Urutkan cerita berdasarkan"
+            >
+              <option value="newest">Terbaru</option>
+              <option value="oldest">Terlama</option>
+              <option value="az">A-Z</option>
+              <option value="za">Z-A</option>
+            </select>
+          </div>
         </div>
 
         <div id="story-list" class="story-list">
@@ -41,6 +58,15 @@ export default class HomePage {
     });
 
     await this.#presenter.loadStories();
+
+    const subscribeButton = document.getElementById('push-notification-tools');
+    if (subscribeButton) {
+      if (isUserLoggedIn()) {
+        subscribeButton.style.display = 'block';
+      } else {
+        subscribeButton.style.display = 'none';
+      }
+    }
 
     document.getElementById('search-input').addEventListener('input', (e) => {
       this.#presenter.handleSearch(e.target.value);
