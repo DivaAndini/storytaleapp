@@ -27,7 +27,8 @@ export async function registerServiceWorker() {
   }
  
   try {
-    const registration = await navigator.serviceWorker.register('/sw.bundle.js');
+    const registration = `${window.location.pathname.includes('storytaleapp') ? '/storytaleapp' : ''}/sw.bundle.js`;
+    navigator.serviceWorker.register(registration);
     console.log('Service worker telah terpasang', registration);
   } catch (error) {
     console.log('Failed to install service worker:', error);
