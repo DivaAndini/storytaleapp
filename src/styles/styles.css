@@ -370,7 +370,7 @@ header {
   align-items: flex-end;
 }
 
-.form-group {
+.form-group-story-controls {
   flex: 1;
   min-width: 155px;
   max-width: 325px;
@@ -394,7 +394,7 @@ header {
   font-weight: bold;
 }
 
-.form-group label {
+.form-group-story-controls label {
   display: block;
   margin-bottom: 6px;
   font-weight: bold;

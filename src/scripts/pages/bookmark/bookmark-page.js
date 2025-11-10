@@ -15,7 +15,7 @@ export default class BookmarkPage {
         </div>
 
         <div class="story-controls">
-          <div class="form-group">
+          <div class="form-group-story-controls">
             <label for="search-input">Cari Cerita</label>
             <input 
               id="search-input" 
@@ -26,7 +26,7 @@ export default class BookmarkPage {
             />
           </div>
 
-          <div class="form-group">
+          <div class="form-group-story-controls">
             <label for="sort-select">Urutkan Cerita</label>
             <select 
               id="sort-select" 
